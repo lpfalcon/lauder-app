@@ -1,0 +1,33 @@
+{
+  "name": "lauder-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-lts": "node --watch --env-file .env app",
+    "dev": "node --watch  app",
+    "user": "node  app/seeds/users.js",
+    "migrations": "npx sequelize-cli db:migrate",
+    "delete-migrations": "npx sequelize-cli db:migrate:undo:all",
+    "seeders": "npx sequelize-cli db:seed:all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sequelize/core": "^7.0.0-alpha.37",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.2",
+    "express": "^4.18.2",
+    "geolib": "^3.3.4",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.36.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
+}
