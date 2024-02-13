@@ -1,9 +1,10 @@
 const { configProcess } = require('./config/dotenvConfig.js')
 const db = require('./models/index.js');
-
+const express = require('express')
 const PORT = configProcess('PORT') || 3000
 const app = require('./routes') 
 
+app.use(express.static('public'))
 db.sequelize.sync({
     alter: false,
     force: false
