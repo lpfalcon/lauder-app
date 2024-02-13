@@ -9,8 +9,8 @@ module.exports = {
     },
     test: {
         username: configProcess("SQLTEST_USER"),
-        database: configProcess("SQLTEST_DBNAME"),
         password: configProcess("SQLTEST_PASS"),
+        database: configProcess("SQLTEST_DBNAME"),
         host: configProcess("SQLTEST_IP"),
         dialect: configProcess("SQLDIALECT")
     },

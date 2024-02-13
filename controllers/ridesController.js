@@ -44,7 +44,7 @@ ridesController.create = async (req, res) => {
                     kilometres
                 })
                 handleResponse.resultResponse({
-                    status: 200,
+                    status: 201,
                     type: 'save',
                     data: {
                         rider: `${user.firstName}  ${user.lastName}`,

@@ -30,6 +30,9 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
     },
+    password: {
+      type: DataTypes.STRING,
+    },
     currentLatitude: {
       type: DataTypes.FLOAT,
       validate: {

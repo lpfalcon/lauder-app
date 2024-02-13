@@ -1,8 +1,11 @@
-const epxress = require('express')
-const router = epxress.Router()
+const express = require('express')
+const app = express();
+const router = express.Router()
 const fs = require('fs')
-
+const cors = require('cors');
+const bodyParser = require('body-parser')
 const pathRouter = `${__dirname}`
+
 
 const removeExtension = (fileName) => {
     return fileName.split('.').shift()
@@ -21,4 +24,10 @@ router.get('*', (req, res) => {
     res.send({ error: 'Not found' })
 })
 
-module.exports = router
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true, limit: '10000mb' }))
+app.use(bodyParser.json())
+
+app.use('/api', router)
+module.exports = app
