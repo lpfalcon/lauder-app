@@ -31,14 +31,14 @@ module.exports = {
         allowNull: false
     },
     currentLatitude: {
-      type: DataTypes.FLOAT(10,2),
+      type: DataTypes.FLOAT,
       validate: {
         min: -90,
         max: 90
       }
     },
     currentLongitude: {
-      type: DataTypes.FLOAT(10,2),
+      type: DataTypes.FLOAT,
       validate: {
         min: -180,
         max: 180

@@ -3,9 +3,6 @@ const { DataTypes, Sequelize } = require('sequelize')
 const { sequelize } = require('../config/dbConfig.js');
 const db = {};
 const pathRouter = `${__dirname}`
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-
 const removeExtension = (fileName) => fileName.split('.').shift()
 
 fs.readdirSync(pathRouter).filter((file) => {
@@ -23,5 +20,6 @@ fs.readdirSync(pathRouter).filter((file) => {
     }
 
 })
-
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
 module.exports = db

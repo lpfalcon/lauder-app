@@ -9,7 +9,7 @@ module.exports = {
         allowNull: false,
         primaryKey: true
       },
-      token: {
+      number: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true
@@ -22,7 +22,15 @@ module.exports = {
       brand: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: 'Visa'
+        defaultValue: 'VISA'
+      },
+      expYear: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      expMonth: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
       userId: {
         type: DataTypes.UUID,
@@ -31,6 +39,19 @@ module.exports = {
           model: "Users",
           key: "id",
         },
+      },
+      cardHolder: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
+      cvc: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      paymentSource:{
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

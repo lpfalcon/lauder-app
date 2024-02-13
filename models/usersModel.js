@@ -11,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) { }
+    static associate(models) { 
+    // if(models.Ride) this.hasMany(models.Ride, {foreignKey: 'id', as:'Ride'})
+     if(models.Payment) this.hasMany(models.Payment, {foreignKey: 'userId'})
+    }
   }
   User.init(
     {
@@ -28,6 +31,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true
       },
+      password: {
+        type: DataTypes.STRING,
+      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -36,6 +42,20 @@ module.exports = (sequelize, DataTypes) => {
       role: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      currentLatitude: {
+        type: DataTypes.FLOAT,
+        validate: {
+          min: -90,
+          max: 90
+        }
+      },
+      currentLongitude: {
+        type: DataTypes.FLOAT,
+        validate: {
+          min: -180,
+          max: 180
+        }
       },
     },
     {

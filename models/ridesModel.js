@@ -11,7 +11,12 @@ module.exports = (sequelize, DataTypes) => {
          * This method is not a part of Sequelize lifecycle.
          * The `models/index` file will call this method automatically.
          */
-        static associate(models) { }
+        static associate(models) {
+            if (models.User) {
+                this.belongsTo(models.User, {foreignKey:'driverId'});
+                this.belongsTo(models.User, {foreignKey:'riderId'});
+            }
+        }
     }
     Ride.init(
         {
@@ -21,40 +26,50 @@ module.exports = (sequelize, DataTypes) => {
                 primaryKey: true
             },
             initialLatitude: {
-                type: DataTypes.DECIMAL(10, 2),
+                type: DataTypes.FLOAT,
                 validate: {
                     min: -90,
                     max: 90
                 }
             },
             initialLongitude: {
-                type: DataTypes.DECIMAL(10, 2),
+                type: DataTypes.FLOAT,
                 validate: {
                     min: -180,
                     max: 180
                 }
             },
             finalLatitude: {
-                type: DataTypes.DECIMAL(10, 2),
+                type: DataTypes.FLOAT,
                 validate: {
                     min: -90,
                     max: 90
                 }
             },
             finalLongitude: {
-                type: DataTypes.DECIMAL(10, 2),
+                type: DataTypes.FLOAT,
                 validate: {
                     min: -180,
                     max: 180
                 }
             },
-            fee: {
-                type: DataTypes.DECIMAL(10, 2),
+            baseFee: {
+                type: DataTypes.FLOAT,
                 allowNull: false,
-                defaultValue: 3000
+                defaultValue: 3500
+            },
+            timeFee: {
+                type: DataTypes.FLOAT,
+                allowNull: false,
+                defaultValue: 200
+            },
+            kmFee: {
+                type: DataTypes.FLOAT,
+                allowNull: false,
+                defaultValue: 1000
             },
             kilometres: {
-                type: DataTypes.DECIMAL(10, 2),
+                type: DataTypes.FLOAT,
                 allowNull: false,
             },
             status: {

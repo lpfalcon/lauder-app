@@ -10,7 +10,7 @@ module.exports = {
         primaryKey: true
       },
       initialLatitude: {
-        type: DataTypes.FLOAT(10,2)
+        type: DataTypes.FLOAT
         ,
         validate: {
           min: -90,
@@ -18,7 +18,7 @@ module.exports = {
         }
       },
       initialLongitude: {
-        type: DataTypes.FLOAT(10,2)
+        type: DataTypes.FLOAT
         ,
         validate: {
           min: -180,
@@ -26,7 +26,7 @@ module.exports = {
         }
       },
       finalLatitude: {
-        type: DataTypes.FLOAT(10,2)
+        type: DataTypes.FLOAT
         ,
         validate: {
           min: -90,
@@ -34,21 +34,30 @@ module.exports = {
         }
       },
       finalLongitude: {
-        type: DataTypes.FLOAT(10,2)
+        type: DataTypes.FLOAT
         ,
         validate: {
           min: -180,
           max: 180
         }
       },
-      fee: {
-        type: DataTypes.FLOAT(10,2)
-        ,
+      baseFee: {
+        type: DataTypes.FLOAT,
         allowNull: false,
-        defaultValue: 3000
+        defaultValue: 3500
+      },
+      timeFee: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+        defaultValue: 200
+      },
+      kmFee: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+        defaultValue: 1000
       },
       kilometres: {
-        type: DataTypes.FLOAT(10,2)
+        type: DataTypes.FLOAT
         ,
         allowNull: false,
       },
