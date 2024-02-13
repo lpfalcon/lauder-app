@@ -18,19 +18,6 @@ paymentsController.create = async (req, res) => {
         } = req?.body || {};
 
         const user = req?.user || {}
-
-        //    createRide = await db.Payment.create({
-        //     id: crypto.randomUUID(),
-        //     number: 'TOKEN'+crypto.randomUUID(),
-        //     brand: 'VISA',
-        //     name:'VISA-1223',
-        //     paymentSource:'frefer',
-        //     userId: "107e9066-9e4f-4da7-b46f-869434ea0c59",
-        //     expYear:exp_year,
-        //     expMonth:exp_month,
-        //     cvc,
-        //     cardHolder: card_holder
-        // })
         const createCreditCard = await axios({
             method: 'POST',
             url: `${paymentUrlBase}/tokens/cards`,
